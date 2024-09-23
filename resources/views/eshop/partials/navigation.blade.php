@@ -20,15 +20,22 @@
 
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li class="dropdown dropdown-v2" style="background-color: #ededed">
-                <a href="index.php" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Home</a>
+            <li class="dropdown dropdown-v2">
+                <a href="/" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Home</a>
             </li>
 
-            <li class="dropdown dropdown-v2">
-                <a href="category.php?category=1" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                    Category
-                </a>
-            </li>
+            @foreach ($allCategories as $category)
+                <li class="dropdown dropdown-v2">
+                    <a
+                        href="{{ route('category.show', $category->id) }}"
+                        class="dropdown-toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        {{ $category->category_name }}
+                    </a>
+                </li>
+            @endforeach
         </ul>
     </div>
 </div>
